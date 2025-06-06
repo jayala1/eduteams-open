@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamTools - Team-Forming Tools for Teachers</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TeamTools™</h1>
+            <p class="subtitle">Team-Forming Tools for Teachers and Trainers</p>
+        </header>
+
+        <main id="mainContent">
+            <!-- Main Menu -->
+            <div id="mainMenu" class="screen active">
+                <div class="menu-section">
+                    <h2>Class Management</h2>
+                    <div class="button-group">
+                        <button id="editClassInfoBtn" class="btn btn-primary">Create Class</button>
+                    </div>
+                </div>
+
+                <div class="menu-section">
+                    <h2>Select Active Class</h2>
+                    <div id="classList" class="class-list">
+                        <p class="no-classes">No classes created yet. Click "Create Class" to get started.</p>
+                    </div>
+                </div>
+
+                <div class="menu-section">
+                    <h2>Team Formation Tools</h2>
+                    <div class="tools-grid">
+                        <div class="tool-category">
+                            <h3>Teams (4 students)</h3>
+                            <button class="btn btn-tool" data-tool="heterogeneous-teams">Heterogeneous Teams</button>
+                            <button class="btn btn-tool" data-tool="random-teams">Random Teams</button>
+                            <button class="btn btn-tool" data-tool="mixed-ability-teams">Mixed Ability Teams</button>
+                            <button class="btn btn-tool" data-tool="similar-ability-teams">Similar Ability Teams</button>
+                            <button class="btn btn-tool" data-tool="same-sex-teams">Same Sex Teams</button>
+                            <button class="btn btn-tool" data-tool="mixed-sex-teams">Mixed Sex Teams</button>
+                        </div>
+
+                        <div class="tool-category">
+                            <h3>Pairs (2 students)</h3>
+                            <button class="btn btn-tool" data-tool="high-low-pairs">High-Low Pairs</button>
+                            <button class="btn btn-tool" data-tool="high-medium-pairs">High-Medium Pairs</button>
+                            <button class="btn btn-tool" data-tool="random-pairs">Random Pairs</button>
+                            <button class="btn btn-tool" data-tool="similar-ability-pairs">Similar Ability Pairs</button>
+                            <button class="btn btn-tool" data-tool="same-sex-pairs">Same Sex Pairs</button>
+                            <button class="btn btn-tool" data-tool="mixed-sex-pairs">Mixed Sex Pairs</button>
+                        </div>
+
+                        <div class="tool-category">
+                            <h3>Two Teams</h3>
+                            <button class="btn btn-tool" data-tool="random-two-teams">Random Teams</button>
+                            <button class="btn btn-tool" data-tool="balanced-two-teams">Balanced Teams</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class Edit Screen -->
+            <div id="classEditScreen" class="screen">
+                <div class="screen-header">
+                    <button id="homeBtn" class="btn btn-home">🏠 Home</button>
+                    <h2>Create/Edit Class Information</h2>
+                </div>
+
+                <div class="class-edit-content">
+                    <div class="input-group">
+                        <label for="classNameInput">Class Name:</label>
+                        <input type="text" id="classNameInput" placeholder="Enter class name" autocomplete="off">
+                        <button id="createClassBtn" class="btn btn-primary">Create/Edit Class</button>
+                    </div>
+
+                    <div id="studentDataSection" class="hidden">
+                        <h3>Student Data</h3>
+                        <div class="data-input-options">
+                            <button id="manualEntryBtn" class="btn btn-secondary">Manual Entry</button>
+                            <button id="csvImportBtn" class="btn btn-secondary">Import CSV</button>
+                            <button id="csvHelperBtn" class="btn btn-secondary">CSV Helper</button>
+                        </div>
+
+                        <div id="csvHelperSection" class="hidden">
+                            <h4>CSV Format Helper</h4>
+                            <p>Enter data in format: Student1,Score1,Sex1,Student2,Score2,Sex2</p>
+                            <textarea id="csvHelperInput" placeholder="Example:&#10;John,85,M,Jane,92,F,Mike,78,M,Sarah,88,F"></textarea>
+                            <button id="formatCSVBtn" class="btn btn-primary">Format Data</button>
+                        </div>
+
+                        <div id="manualEntrySection" class="hidden">
+                            <h4>Manual Student Entry</h4>
+                            <div class="student-form">
+                                <input type="text" id="studentName" placeholder="Student Name">
+                                <input type="number" id="studentScore" placeholder="Score (0-100)" min="0" max="100">
+                                <select id="studentSex">
+                                    <option value="">Select Gender</option>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                </select>
+                                <button id="addStudentBtn" class="btn btn-primary">Add Student</button>
+                            </div>
+                        </div>
+
+                        <div id="csvImportSection" class="hidden">
+                            <h4>Import CSV File</h4>
+                            <button id="selectCSVFileBtn" class="btn btn-secondary">Select CSV File</button>
+                            <div id="csvPreview" class="hidden">
+                                <h5>Preview:</h5>
+                                <textarea id="csvPreviewText" readonly></textarea>
+                                <button id="importCSVDataBtn" class="btn btn-primary">Import Data</button>
+                            </div>
+                        </div>
+
+                        <div id="studentList" class="student-list">
+                            <h4>Current Students</h4>
+                            <div id="studentsTable"></div>
+                            <button id="saveClassBtn" class="btn btn-success hidden">Save Class</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Formation Results Screen -->
+            <div id="resultsScreen" class="screen">
+                <div class="screen-header">
+                    <button id="resultsHomeBtn" class="btn btn-home">🏠 Home</button>
+                    <h2 id="resultsTitle">Team Formation Results</h2>
+                    <div class="results-actions">
+                        <button id="regenerateBtn" class="btn btn-secondary">Try Again</button>
+                        <button id="saveResultsBtn" class="btn btn-primary">Save Results</button>
+                        <button id="printResultsBtn" class="btn btn-secondary">Print</button>
+                    </div>
+                </div>
+
+                <div id="resultsContent" class="results-content">
+                    <!-- Results will be populated here -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 TeamTools - Team-Forming Tools for Teachers and Trainers</p>
+        </footer>
+    </div>
+
+    <script src="js/classManager.js"></script>
+    <script src="js/teamFormation.js"></script>
+    <script src="js/csvHelper.js"></script>
+    <script src="js/teamEditor.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

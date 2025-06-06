@@ -1,0 +1,36 @@
+{
+  "name": "teamtools-electron",
+  "version": "1.0.0",
+  "description": "Team-Forming Tools for Teachers and Trainers",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "dist": "electron-builder --publish=never"
+  },
+  "keywords": [
+    "education",
+    "teams",
+    "classroom",
+    "cooperative learning"
+  ],
+  "author": "TeamTools",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.3.11",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.teamtools.app",
+    "productName": "TeamTools",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules",
+      "!dist"
+    ]
+  }
+}
