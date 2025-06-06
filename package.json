@@ -1,7 +1,7 @@
 {
-  "name": "teamtools-electron",
+  "name": "eduteams-open",
   "version": "1.0.0",
-  "description": "Team-Forming Tools for Teachers and Trainers",
+  "description": "Open-source team formation tool for educators",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -15,15 +15,16 @@
     "classroom",
     "cooperative learning"
   ],
-  "author": "TeamTools",
+  "author": "EduTeams Contributors",
   "license": "MIT",
   "devDependencies": {
     "electron": "^27.3.11",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2"
   },
   "build": {
-    "appId": "com.teamtools.app",
-    "productName": "TeamTools",
+    "appId": "com.eduteams.app",
+    "productName": "EduTeams",
     "directories": {
       "output": "dist"
     },

@@ -78,9 +78,9 @@ function createWindow() {
           click: () => {
             dialog.showMessageBox(mainWindow, {
               type: 'info',
-              title: 'About TeamTools',
-              message: 'TeamTools v1.0.0',
-              detail: 'Team-Forming Tools for Teachers and Trainers'
+              title: 'About EduTeams',
+              message: 'EduTeams v1.0.0',
+              detail: 'Open-Source Team Formation Tool for Educators'
             });
           }
         }

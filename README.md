@@ -1,4 +1,4 @@
-# TeamTools Electron App
+# Eduteams-open Electron App
 
 Team-Forming Tools for Teachers and Trainers - An Electron application for creating optimal student teams.
 
